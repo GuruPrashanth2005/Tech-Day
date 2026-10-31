@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Professional SaaS Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Chatbot Markdown Prose Styling */
+.markdown-prose h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 2px;
+}
+.markdown-prose p {
+  margin: 4px 0;
+  color: #334155;
+  line-height: 1.5;
+}
+.markdown-prose ul, .markdown-prose ol {
+  margin: 4px 0 6px 16px;
+  padding: 0;
+}
+.markdown-prose li {
+  margin-bottom: 3px;
+  color: #334155;
+}
+.markdown-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 11px;
+}
+.markdown-prose th {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  text-align: left;
+  padding: 6px 8px;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+}
+.markdown-prose td {
+  padding: 5px 8px;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+.markdown-prose strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+.markdown-prose code {
+  background-color: #f1f5f9;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 11px;
+  color: #2563eb;
+}
