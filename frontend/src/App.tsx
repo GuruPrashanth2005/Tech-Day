@@ -140,10 +140,16 @@ export default function App() {
 
   // AI Forensic Co-Pilot Chatbot State
   const [chatOpen, setChatOpen] = useState<boolean>(false);
+  const [suggestedActions, setSuggestedActions] = useState<string[]>([
+    'Analyze current account',
+    'Find top 5 high-risk mules',
+    'Explain hardware collision risk',
+    'How do I file a SAR?'
+  ]);
   const [chatMessages, setChatMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string; time: string }>>([
     { 
       role: 'assistant', 
-      content: 'FinTrace AI Forensic Co-Pilot active. Connected to 11,984 graph entities and Isolation Forest models. You can ask me to evaluate any suspect account, assess hardware collisions, verify FATF/FIU AML typologies, or check transaction anomalies.', 
+      content: 'Hello Officer! I am your FinTrace AI Forensic Co-Pilot. I am continuously listening to 12,000+ graph entities, transaction velocity anomalies, and device collisions. You can ask me anything about suspect accounts, test unseen scenarios, or ask for guidance on filing an SAR.', 
       time: '12:00' 
     }
   ]);
@@ -176,7 +182,7 @@ export default function App() {
       body: JSON.stringify({
         message: query.trim(),
         context_account: selectedAccount,
-        history: chatMessages.slice(-4).map(m => ({ role: m.role, content: m.content }))
+        history: chatMessages.slice(-6).map(m => ({ role: m.role, content: m.content }))
       })
     })
       .then(res => res.json())
@@ -190,6 +196,9 @@ export default function App() {
             time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
           }
         ]);
+        if (data.quick_actions && data.quick_actions.length > 0) {
+          setSuggestedActions(data.quick_actions);
+        }
       })
       .catch(() => {
         setChatLoading(false);
@@ -197,7 +206,7 @@ export default function App() {
           ...prev, 
           { 
             role: 'assistant', 
-            content: `Telemetry grounded for ${selectedAccount}: Isolation Forest registered anomaly score above critical threshold. Recommending immediate ego-network subgraph isolation.`, 
+            content: `Understood Officer. Examining telemetry for ${selectedAccount || 'the network'}. Isolation Forest registers elevated risk indicators. Would you like me to trigger a depth-2 ego network drilldown or review the device collision graph?`, 
             time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
           }
         ]);
@@ -1688,26 +1697,31 @@ export default function App() {
               </div>
             </div>
 
-            {/* Quick Prompt Suggestions */}
+            {/* Interactive Dynamic Quick Action Chips */}
             <div style={{ padding: '8px 14px', backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', display: 'flex', gap: '6px', overflowX: 'auto' }}>
-              <button 
-                onClick={() => handleSendChatMessage(`Analyze anomaly pattern for ${selectedAccount || 'ACC530573'}`)}
-                style={{ fontSize: '11px', whiteSpace: 'nowrap', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', padding: '4px 8px', borderRadius: '6px', color: '#334155', cursor: 'pointer', fontWeight: 500 }}
-              >
-                Analyze {selectedAccount ? selectedAccount : 'ACC530573'}
-              </button>
-              <button 
-                onClick={() => handleSendChatMessage('Check device collision risks across the network')}
-                style={{ fontSize: '11px', whiteSpace: 'nowrap', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', padding: '4px 8px', borderRadius: '6px', color: '#334155', cursor: 'pointer', fontWeight: 500 }}
-              >
-                Check Device Collisions
-              </button>
-              <button 
-                onClick={() => handleSendChatMessage('What are the FIU-IND red flags for mule rings?')}
-                style={{ fontSize: '11px', whiteSpace: 'nowrap', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', padding: '4px 8px', borderRadius: '6px', color: '#334155', cursor: 'pointer', fontWeight: 500 }}
-              >
-                FIU Red Flags
-              </button>
+              {suggestedActions.map((action, i) => (
+                <button 
+                  key={i}
+                  onClick={() => handleSendChatMessage(action)}
+                  style={{
+                    fontSize: '11px',
+                    whiteSpace: 'nowrap',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #bfdbfe',
+                    padding: '4px 10px',
+                    borderRadius: '20px',
+                    color: '#1d4ed8',
+                    cursor: 'pointer',
+                    fontWeight: 500,
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#eff6ff'; e.currentTarget.style.borderColor = '#3b82f6'; }}
+                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ffffff'; e.currentTarget.style.borderColor = '#bfdbfe'; }}
+                >
+                  {action}
+                </button>
+              ))}
             </div>
 
             {/* Chatbot Message Thread */}
