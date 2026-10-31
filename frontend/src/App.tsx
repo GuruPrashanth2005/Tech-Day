@@ -143,7 +143,7 @@ export default function App() {
   const [chatMessages, setChatMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string; time: string }>>([
     { 
       role: 'assistant', 
-      content: 'Argus AI Forensic Co-Pilot active. Connected to 23,673 nodes and Isolation Forest engine. You can ask me to evaluate any suspect account, assess hardware collisions, verify FATF/FIU AML typologies, or check transaction anomalies.', 
+      content: 'FinTrace AI Forensic Co-Pilot active. Connected to 11,984 graph entities and Isolation Forest models. You can ask me to evaluate any suspect account, assess hardware collisions, verify FATF/FIU AML typologies, or check transaction anomalies.', 
       time: '12:00' 
     }
   ]);
@@ -467,7 +467,7 @@ export default function App() {
             </div>
             <div>
               <div style={{ fontSize: '18px', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.3px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                Argus-AML
+                FinTrace AI
                 <span style={{ fontSize: '9px', backgroundColor: '#eff6ff', color: '#2563eb', padding: '1px 5px', borderRadius: '4px', border: '1px solid #bfdbfe' }}>Groq AI</span>
               </div>
               <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 500 }}>Financial Crime Investigator</div>
@@ -1642,7 +1642,7 @@ export default function App() {
             <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Bot size={14} color="#ffffff" />
             </div>
-            <span>Forensic AI Co-Pilot</span>
+            <span>FinTrace AI Co-Pilot</span>
             <span style={{ fontSize: '10px', backgroundColor: '#334155', color: '#38bdf8', padding: '1px 6px', borderRadius: '10px', fontWeight: 700 }}>GROQ</span>
           </button>
         ) : (
@@ -1672,7 +1672,7 @@ export default function App() {
                 </div>
                 <div>
                   <div style={{ fontSize: '13px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    Argus Forensic Co-Pilot
+                    FinTrace AI Co-Pilot
                     <span style={{ fontSize: '9px', backgroundColor: '#1e293b', color: '#38bdf8', padding: '1px 5px', borderRadius: '4px', border: '1px solid #334155' }}>ONLINE</span>
                   </div>
                   <div style={{ fontSize: '10px', color: '#94a3b8' }}>Context: {selectedAccount ? selectedAccount : 'Global Network Engine'}</div>

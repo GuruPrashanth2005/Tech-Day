@@ -1,8 +1,8 @@
-# Argus-AML: AI Financial Crime Network Investigator
+# FinTrace AI: AI Financial Crime Network Investigator
 
 > **TCS Hackathon 2026 — Challenge 07: AI Financial Crime Network Investigator (AI for Business)**
 
-Argus-AML is an enterprise-grade agentic financial intelligence platform engineered to detect, de-anonymize, and dismantle complex money laundering syndicates, pass-through mule rings, and device-collision fraud networks.
+FinTrace AI is an enterprise-grade agentic financial intelligence platform engineered to detect, de-anonymize, and dismantle complex money laundering syndicates, pass-through mule rings, and device-collision fraud networks.
 
 ---
 
@@ -42,3 +42,4 @@ npm install
 npm run dev
 ```
 Frontend runs on `http://localhost:5173`.
+

@@ -198,8 +198,8 @@ class MultiAgentInvestigator:
         }
 
         system_prompt = f"""
-You are the "Argus AI Forensic Co-Pilot" for TCS Financial Crime Investigators.
-You are directly connected to the Argus Heterogeneous Graph Engine and Isolation Forest ML models.
+You are the "FinTrace AI Forensic Co-Pilot" for TCS Financial Crime Investigators.
+You are directly connected to the FinTrace AI Heterogeneous Graph Engine and Isolation Forest ML models.
 
 CURRENT INVESTIGATION TELEMETRY & CONTEXT:
 - Targeted Account Evidence: {json.dumps(grounding_data, indent=2) if grounding_data else "None currently selected (Global Network View)"}
