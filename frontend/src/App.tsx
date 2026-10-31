@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ForceGraph2D from 'react-force-graph-2d';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { 
   ShieldAlert, 
   Search, 
@@ -1750,7 +1751,7 @@ export default function App() {
                         msg.content
                       ) : (
                         <div className="markdown-prose" style={{ fontSize: '12px' }}>
-                          <ReactMarkdown>{msg.content}</ReactMarkdown>
+                          <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
                         </div>
                       )}
                     </div>

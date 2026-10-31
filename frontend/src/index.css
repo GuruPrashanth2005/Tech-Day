@@ -64,21 +64,33 @@ html, body, #root {
 .markdown-prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 8px 0;
+  margin: 10px 0;
   font-size: 11px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.markdown-prose thead {
+  background-color: #f8fafc;
 }
 .markdown-prose th {
   background-color: #f1f5f9;
   color: #0f172a;
   text-align: left;
-  padding: 6px 8px;
-  border: 1px solid #e2e8f0;
-  font-weight: 600;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  font-weight: 700;
+  white-space: nowrap;
 }
 .markdown-prose td {
-  padding: 5px 8px;
+  padding: 7px 10px;
   border: 1px solid #e2e8f0;
   color: #334155;
+  vertical-align: top;
+}
+.markdown-prose tr:nth-child(even) {
+  background-color: #f8fafc;
 }
 .markdown-prose strong {
   color: #0f172a;
